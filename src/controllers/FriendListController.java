@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import application.ApiService;
 import application.RetrofitService;
 import application.User;
+import application.UserModel;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,6 +41,9 @@ public class FriendListController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
+		//Label uname=new Label();
+		//Label fname=new Label();
+		//Label lname=new Label();
 		
 		// TODO Auto-generated method stub
 	}
@@ -48,31 +53,36 @@ public class FriendListController implements Initializable{
 	msg.setText("Button clicked");	
 	 RetrofitService retrofit=new RetrofitService();
 	 ApiService getuser = retrofit.getService();
-	 Call<List<User>>call=getuser.getallusers();
+	 Call<UserModel>call=getuser.getallusers();
 	 
-	 call.enqueue(new Callback<List<User>>() {
+	 call.enqueue(new Callback<UserModel>() {
 		 @Override
-		 public void onResponse(Call<List<User>> call,Response<List<User>> response) {
+		 public void onResponse(Call<UserModel> call,Response<UserModel> response) {
 			 if(!response.isSuccessful()) {
 				 msg.setText("code: "+ response.code());
 				 return;
 			 }
-			List<User>alluser= response.body();
-			//List<User> alluser=new ArrayList<>();
-			//alluser=umodel.getUsers();
-			for(User ulist:alluser) {
-				 uname.setText(ulist.username);
-			     fname.setText(ulist.firstname);
-			     lname.setText(ulist.lastname);
+			else {
+				UserModel Umodel=response.body();
+				List<User> alluser=new ArrayList<>();
+				 alluser=Umodel.getUsers();
+				for(User ulist:alluser) {
+					 uname.setText(ulist.username+',');
+					 System.out.print(ulist.firstname+',');
+					 System.out.println(ulist.lastname+',');
+				}
+				}
+			
 			}
-		 }
 
 		@Override
-		public void onFailure(Call<List<User>> call, Throwable t) {
+		public void onFailure(Call<UserModel> call, Throwable t) {
 			// TODO Auto-generated method stub
 			msg.setText("Load Failure: "+ t.getMessage());
 
 		}
+			
+
  });
 	}
 }
