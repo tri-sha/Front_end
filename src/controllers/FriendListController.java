@@ -37,6 +37,8 @@ public class FriendListController implements Initializable{
 	
 	@FXML 
 	private Button GetMore;
+	
+	List<User> alluser=new ArrayList<>();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -64,13 +66,16 @@ public class FriendListController implements Initializable{
 			 }
 			else {
 				UserModel Umodel=response.body();
-				List<User> alluser=new ArrayList<>();
+				
 				 alluser=Umodel.getUsers();
+				 //updating UI other than application so given under this lemda expression
+				 Platform.runLater(()->{
 				for(User ulist:alluser) {
 					 uname.setText(ulist.username+',');
-					 System.out.print(ulist.firstname+',');
+					 lname.setText(ulist.firstname+',');
 					 System.out.println(ulist.lastname+',');
 				}
+				 });
 				}
 			
 			}

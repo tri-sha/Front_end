@@ -55,6 +55,7 @@ public class FrontendController implements Initializable{
 	}
 	
 	//onclick user profile image
+	@FXML
 	public void ShowProfile(MouseEvent event){
 		Parent root;
         try {
@@ -71,6 +72,7 @@ public class FrontendController implements Initializable{
    
 	}
 	
+	@FXML
 	public void EditProfile(MouseEvent event){
 		Parent root;
         try {
