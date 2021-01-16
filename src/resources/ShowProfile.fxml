@@ -16,7 +16,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="422.0" style="-fx-background-color: #ccff99;">
                <children>
-                  <ImageView fitHeight="62.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="back" accessibleRole="HYPERLINK" fitHeight="62.0" fitWidth="32.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/2391327-200.png" />
                      </image>

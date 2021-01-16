@@ -14,8 +14,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-
-			Parent root=FXMLLoader.load(getClass().getResource("../resources/Front_end.fxml"));
+			
+			
+			Parent root;
+			FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("../resources/Front_end.fxml"));
+			root=(Parent) fxmlLoader.load();
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("front_end.css").toExternalForm());
 			primaryStage.setTitle("User Dashboard");
@@ -25,6 +28,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	public static void main(String[] args) {
 		launch(args);

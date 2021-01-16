@@ -10,9 +10,16 @@ import application.User;
 import application.UserModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,6 +45,9 @@ public class FriendListController implements Initializable{
 	@FXML 
 	private Button GetMore;
 	
+	@FXML
+	private ImageView back;
+	
 	List<User> alluser=new ArrayList<>();
 
 	@Override
@@ -48,6 +58,24 @@ public class FriendListController implements Initializable{
 		//Label lname=new Label();
 		
 		// TODO Auto-generated method stub
+	}
+	
+	@FXML
+	public void back(MouseEvent event){
+		Parent root;
+		msg.setText("Back clicked");
+        try {
+            FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("../resources/front_end.fxml"));
+            root=(Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("User_Dashboard");
+            stage.setScene(new Scene(root));
+            stage.show();
+            //it Hides the current window
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+        }
+   
 	}
 	
 	@FXML
