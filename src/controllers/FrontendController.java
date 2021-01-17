@@ -102,6 +102,7 @@ public class FrontendController implements Initializable{
 		 ApiService getuser = retrofit.getService();
 		 Call<UserModel>call=getuser.getallusers();
 		 
+		 
 		 call.enqueue(new Callback<UserModel>() {
 			 @Override
 			 public void onResponse(Call<UserModel> call,Response<UserModel> response) {
@@ -291,10 +292,17 @@ public class FrontendController implements Initializable{
    
 	}
 	
-
+	public void myfunction(String str) {
+		System.out.println(str);
+	}
 
 	public void onloadusersclick(ActionEvent event){
 		searchText.setText("Button clicked");	
+	}
+	
+	
+	public void HboxClick(MouseEvent event) {
+		
 	}
 }
 

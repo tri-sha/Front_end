@@ -1,5 +1,6 @@
 package application;
 	
+import controllers.FrontendController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -19,6 +20,8 @@ public class Main extends Application {
 			Parent root;
 			FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("../resources/Front_end.fxml"));
 			root=(Parent) fxmlLoader.load();
+			FrontendController setController=fxmlLoader.getController();
+			setController.myfunction("trisha@gmail.com");
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("front_end.css").toExternalForm());
 			primaryStage.setTitle("User Dashboard");
