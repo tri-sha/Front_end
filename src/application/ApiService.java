@@ -17,6 +17,6 @@ public interface ApiService {
 	@POST("/get-message")
 		Call<Message> getmessage(@Body Message message);
 	@POST("/search-user")
-		Call<UserModel> searchuser(@Body User user);
+		Call<UserModel> searchuser(@Body String query);
 	
 }

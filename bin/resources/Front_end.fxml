@@ -55,16 +55,11 @@
                      </image>
                   </ImageView>
                   <ImageView fitHeight="16.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Desktop/icons/780068-200.png" />
-                     </image>
-                  </ImageView>
                   <ImageView fitHeight="26.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="loadUser" mnemonicParsing="false" onAction="#onloadusersclick" prefHeight="48.0" prefWidth="67.0" text="Log Out" wrapText="true" />
                </children>
             </VBox>
-            <VBox prefHeight="606.0" prefWidth="294.0" style="-fx-background-color: #e6e6e6;">
+            <VBox fx:id="vbox" prefHeight="606.0" prefWidth="294.0" style="-fx-background-color: #e6e6e6;">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="267.0" style="-fx-background-color: #cccccc;">
                      <children>
@@ -76,7 +71,7 @@
                               <Insets left="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <TextField fx:id="searchText" prefHeight="25.0" prefWidth="192.0" style="-fx-border-radius: 10;" text="search">
+                        <TextField fx:id="searchText" onKeyPressed="#Search" prefHeight="25.0" prefWidth="192.0" promptText=" Search here" style="-fx-border-radius: 10;">
                            <HBox.margin>
                               <Insets bottom="2.0" left="2.0" top="2.0" />
                            </HBox.margin>
@@ -85,51 +80,6 @@
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
                      </VBox.margin>
-                  </HBox>
-                  <HBox fx:id="friendBox1" alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="271.0">
-                     <children>
-                        <Label fx:id="friendDp1" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-border-radius: 50; -fx-border-color: black;" text="A" textFill="#a11313">
-                           <font>
-                              <Font name="Arial" size="24.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="52.0" prefWidth="21.0" />
-                        <Label fx:id="friendName1" prefHeight="32.0" prefWidth="185.0" text="Label" wrapText="true">
-                           <font>
-                              <Font name="Arial Bold" size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="friendBox11" alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="271.0">
-                     <children>
-                        <Label fx:id="friendDp2" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="46.0" style="-fx-border-radius: 50; -fx-border-color: black;" text="B" textFill="#a11313">
-                           <font>
-                              <Font name="Arial" size="24.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="52.0" prefWidth="20.0" />
-                        <Label fx:id="friendName2" prefHeight="32.0" prefWidth="185.0" text="Label" wrapText="true">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="friendBox111" alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="271.0">
-                     <children>
-                        <Label fx:id="friendDp3" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="46.0" style="-fx-border-radius: 50; -fx-border-color: black;" text="C" textFill="#a11313">
-                           <font>
-                              <Font name="Arial" size="24.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="52.0" prefWidth="20.0" />
-                        <Label fx:id="friendName3" prefHeight="32.0" prefWidth="185.0" text="Label" wrapText="true">
-                           <font>
-                              <Font name="Arial Bold" size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
                   </HBox>
                </children>
                <HBox.margin>
@@ -192,7 +142,7 @@
             </VBox>
             <Pane prefHeight="67.0" prefWidth="407.0" style="-fx-border-radius: 20; -fx-border-color: #4a9900;">
                <children>
-                  <Button fx:id="sendButton" layoutX="341.0" layoutY="8.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="52.0" text="Send">
+                  <Button fx:id="sendButton" layoutX="339.0" layoutY="8.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="59.0" text="Send">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
